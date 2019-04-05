@@ -19,8 +19,12 @@ export default class ListPersonComponent extends Component {
 
   @action
   createPerson(name) {
-    this.args.addPerson(name);
-    // reset the name set
-    this.newName = '';
+    if (name.length) {
+      this.args.addPerson(name);
+      // reset the form
+      this.newName = '';
+    }
+    // prevent the form submission
+    return false;
   }
 }

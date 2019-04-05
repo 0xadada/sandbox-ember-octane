@@ -4,7 +4,11 @@
       {{yield person}}
     {{/each}}
   </ol>
+{{else}}
+  no people
 {{/if}}
 
-<input onKeyUp={{action (mut this.newName) value="target.value"}} value={{this.newName}}>
-<button onclick={{action this.createPerson this.newName}}>add</button>
+<form onSubmit={{action this.createPerson this.newName}}>
+  <input onKeyUp={{action (mut this.newName) value="target.value"}} value={{this.newName}}>
+  <input type="submit" value="add">
+</form>
