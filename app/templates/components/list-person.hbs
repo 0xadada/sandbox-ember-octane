@@ -1,7 +1,7 @@
 {{#if this.hasPeople}}
   <ol ...attributes>
-    {{#each this.capitalizedPeople as |person|}}
-      {{yield person}}
+    {{#each this.capitalizedPeople as |person index|}}
+      {{yield person index}}
     {{/each}}
   </ol>
 {{else}}

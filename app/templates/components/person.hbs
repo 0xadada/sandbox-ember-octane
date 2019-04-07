@@ -1,0 +1,7 @@
+<form onSubmit={{action this.save this.tempName}}>
+  <input type=text
+    onChange={{action (mut this.tempName) value="target.value"}}
+    value={{this.tempName}}>
+  {{yield}}
+  <input type="submit" value="Save">
+</form>

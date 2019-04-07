@@ -1,0 +1,9 @@
+input[type=text] {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 1px solid transparent;
+  outline: none;
+}
+input[type=text]:focus {
+  border: 1px solid #DEDEDE;
+}

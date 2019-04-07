@@ -1,5 +1,9 @@
 {{outlet}}
 
-<ListPerson class="people" @people={{this.model}} @addPerson={{this.addPerson}} as |person|>
-  <li>{{person}}</li>
+<ListPerson class="people" @people={{this.model}} @addPerson={{this.addPerson}} as |person index|>
+  <li>
+    <Person @person={{person}} @onSavePerson={{action this.onSavePerson person index}}>
+      {{index}}/{{person}}
+    </Person>
+  </li>
 </ListPerson>
