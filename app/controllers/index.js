@@ -14,10 +14,9 @@ export default class IndexController extends Controller {
 
   @action
   onSavePerson(originalName, index, newName) {
-    // create a new array, splicing the new name into the old array
-    let newPeople = [].concat(this.model);
-    newPeople.splice(index, 1, newName);
-    // replace the old array with the new to signal the array changed
-    this.model = newPeople;
+    // replace the item in the array with the new one
+    this.model.splice(index, 1, newName);
+    // signal to Ember the array has changed
+    this.model = this.model;
   }
 }
