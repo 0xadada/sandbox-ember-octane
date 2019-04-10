@@ -3,13 +3,8 @@ import { tracked } from '@glimmer/tracking';
 import { action, computed } from '@ember/object';
 
 export default class PersonComponent extends Component {
-  constructor() {
-    super(...arguments);
-    // this.tempName = this.args.person.name;
-  }
-
   @tracked
-  tempName; // = this.args.person.name;
+  tempName;
 
   @computed('@person')
   get name() {

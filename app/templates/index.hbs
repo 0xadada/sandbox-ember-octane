@@ -3,7 +3,7 @@
 <h2>raw</h2>
 <ListPerson class="people" @people={{this.model}} as |person|>
   <li>
-    {{person.name}}
+    {{person.id}}/{{person.name}}
   </li>
 </ListPerson>
 
@@ -15,7 +15,7 @@
 as |person index|>
   <li>
     <Person @person={{person}} @onSavePerson={{action this.onSavePerson person index}}>
-      {{index}}/{{person.name}}
+      {{person.id}}/{{person.name}}
     </Person>
   </li>
 </ListPerson>
@@ -28,7 +28,7 @@ as |person index|>
 as |person index|>
   <li>
     <Person @person={{person}} @onSavePerson={{action this.onSavePerson person index}}>
-      {{index}}/{{person.name}}
+      {{person.id}}/{{person.name}}
     </Person>
   </li>
 </ListPerson>
