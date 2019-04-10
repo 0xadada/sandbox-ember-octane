@@ -5,11 +5,11 @@ import { action, computed } from '@ember/object';
 export default class PersonComponent extends Component {
   constructor() {
     super(...arguments);
-    this.tempName = this.args.person.name;
+    // this.tempName = this.args.person.name;
   }
 
   @tracked
-  tempName;
+  tempName; // = this.args.person.name;
 
   @computed('@person')
   get name() {
@@ -17,7 +17,7 @@ export default class PersonComponent extends Component {
   }
 
   @action
-  save(name) {
+  save(person, name) {
     this.args.onSavePerson(name);
     return false;
   }
