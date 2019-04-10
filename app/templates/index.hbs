@@ -1,9 +1,35 @@
 {{outlet}}
 
-<ListPerson class="people" @people={{this.model}} @addPerson={{this.addPerson}} as |person index|>
+<h2>raw</h2>
+<ListPerson class="people" @people={{this.model}} as |person|>
+  <li>
+    {{person.name}}
+  </li>
+</ListPerson>
+
+<h2>lowercase</h2>
+<ListPerson class="people"
+  @people={{this.model}}
+  @addPerson={{this.addPerson}}
+  @mapper={{this.mapLowercase}}
+as |person index|>
   <li>
     <Person @person={{person}} @onSavePerson={{action this.onSavePerson person index}}>
-      {{index}}/{{person}}
+      {{index}}/{{person.name}}
     </Person>
   </li>
 </ListPerson>
+
+<h2>uppercase</h2>
+<ListPerson class="people"
+  @people={{this.model}}
+  @addPerson={{this.addPerson}}
+  @mapper={{this.mapUppercase}}
+as |person index|>
+  <li>
+    <Person @person={{person}} @onSavePerson={{action this.onSavePerson person index}}>
+      {{index}}/{{person.name}}
+    </Person>
+  </li>
+</ListPerson>
+

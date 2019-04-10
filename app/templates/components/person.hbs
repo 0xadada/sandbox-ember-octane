@@ -1,5 +1,5 @@
 <form onSubmit={{action this.save this.tempName}}>
-  <input type=text
+  <input type="text"
     onChange={{action (mut this.tempName) value="target.value"}}
     value={{this.tempName}}>
   {{yield}}

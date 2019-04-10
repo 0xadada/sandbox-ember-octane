@@ -9,7 +9,9 @@ export default class IndexController extends Controller {
   @action
   addPerson(name) {
     name = String.prototype.capitalize.call(name);
-    this.model.push(name);
+    const person = this.store.createRecord('person', { name });
+    let people = [].concat(this.model, person);
+    this.model = people;
   }
 
   @action
@@ -18,5 +20,19 @@ export default class IndexController extends Controller {
     this.model.splice(index, 1, newName);
     // signal to Ember the array has changed
     this.model = this.model;
+  }
+
+  mapUppercase(people) {
+    return people.map(person => ({
+        name: String.prototype.toUpperCase.call(person.name)
+      })
+    );
+  }
+
+  mapLowercase(people) {
+    return people.map(person => ({
+        name: String.prototype.toLowerCase.call(person.name)
+      })
+    );
   }
 }

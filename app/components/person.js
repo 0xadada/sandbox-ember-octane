@@ -5,7 +5,7 @@ import { action, computed } from '@ember/object';
 export default class PersonComponent extends Component {
   constructor() {
     super(...arguments);
-    this.tempName = this.args.person;
+    this.tempName = this.args.person.name;
   }
 
   @tracked
@@ -13,7 +13,7 @@ export default class PersonComponent extends Component {
 
   @computed('@person')
   get name() {
-    return this.args.person || 'person has no name';
+    return this.args.person.name || 'person has no name';
   }
 
   @action

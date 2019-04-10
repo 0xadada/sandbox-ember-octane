@@ -1,6 +1,6 @@
 {{#if this.hasPeople}}
   <ol ...attributes>
-    {{#each this.capitalizedPeople as |person index|}}
+    {{#each this.mappedPeople as |person index|}}
       {{yield person index}}
     {{/each}}
   </ol>
@@ -8,7 +8,9 @@
   no people
 {{/if}}
 
-<form onSubmit={{action this.createPerson this.newName}}>
-  <input onKeyUp={{action (mut this.newName) value="target.value"}} value={{this.newName}}>
-  <input type="submit" value="add">
-</form>
+{{#if @addPerson}}
+  <form onSubmit={{action this.createPerson this.newName}}>
+    <input onKeyUp={{action (mut this.newName) value="target.value"}} value={{this.newName}}>
+    <input type="submit" value="add">
+  </form>
+{{/if}}
